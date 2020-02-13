@@ -7,9 +7,9 @@ public class Token {
         runningNumber = (int) System.currentTimeMillis();
     }
 
-    public Token giveNewToken(){
-        return new Token();
-    }
+   // public Token giveNewToken(){
+   //     return new Token();
+   // }
 
     static Token getInnerToken(){
         return innerToken;

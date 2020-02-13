@@ -1,5 +1,6 @@
 package memory.flash;
 
+import system.Certificate;
 import system.Token;
 
 import java.util.ArrayList;
@@ -9,28 +10,21 @@ import java.util.Map;
 
 public class ReferencesMemory {
 
-    private ReferencesMemory(){
+    public ReferencesMemory() {
         references = new HashMap<>();
     }
 
-    public static ReferencesMemory create(Token t){
-        if(t.isValid()){
-            return new ReferencesMemory();
-        } throw new ArithmeticException("keine Berechtigung einen ReferenceMemory zu erstellen");
-     }
-
     private final Map<String, Reference> references;
 
-    public void insert(Reference ref, Token t){
-        if(t.isValid()) {
-            references.put(ref.getIdentifier(), ref);
-        } throw new ArithmeticException("Keine Berechtigung Referencen hinzuzufügen");
+    public void insert(Reference ref, Token t) {
+        Certificate.certificate(t, toString());
+        references.put(ref.getIdentifier(), ref);
     }
 
 
     // TODO
-    public void reName(String oldName, String newName, Token t){
-        if(t.isValid()){
+    public void reName(String oldName, String newName, Token t) {
+        if (t.isValid()) {
             Reference tmp = references.getOrDefault(oldName, null);
         }
     }
