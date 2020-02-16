@@ -1,9 +1,11 @@
 package system;
 
+import input.Line;
 import input.NMListener;
-import memory.flash.ReferencesMemory;
-import memory.story.OutputMemory;
+import memory.flash.ref.ReferencesMemory;
+import output.story.OutputMemory;
 import output.Console;
+import system.security.Token;
 
 import java.util.Stack;
 
@@ -28,12 +30,14 @@ public class Process {
     }
 
     public void writeInfo(){
-        Console.INFO.writeConsoleLine("Test", showToken());
+        Console.INFO.writeConsoleLine("INFO", showToken());
     }
 
     public boolean run(){
+        Line line;
         while(showToken().isValid()){
-            in.listen(showToken());
+            line = in.listen(showToken());
+            System.out.println(line.toString());
         }
         writeOutput();
         return false;
@@ -56,5 +60,8 @@ public class Process {
     private void writeOutput(){
         output.getOutputList(showToken())
                 .forEach(s ->Console.OUTPUT.writeConsoleLine(s, showToken()));
+    }
+    private Line createLine(String content){
+        return Line.getSystemLine().createLine(content, showToken());
     }
 }

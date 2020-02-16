@@ -1,4 +1,4 @@
-package memory.flash;
+package memory.flash.ref;
 
 import system.type.NMType;
 

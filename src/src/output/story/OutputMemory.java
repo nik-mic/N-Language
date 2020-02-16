@@ -1,7 +1,7 @@
-package memory.story;
+package output.story;
 
-import system.Certificate;
-import system.Token;
+import system.security.Certificate;
+import system.security.Token;
 
 import java.util.ArrayList;
 import java.util.List;

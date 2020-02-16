@@ -1,20 +1,22 @@
 package input;
 
 import output.Console;
-import system.Token;
-
+import system.security.Token;
 import java.util.Scanner;
 
 public class NMListener {
-    private String currentLine;
     private Scanner in;
 
     public NMListener(){
         in = new Scanner(System.in);
     }
 
-    public void listen(Token t){
+    public Line listen(Token t){
         Console.INPUT.tease(t);
-        in.nextLine();
+        return makeLine(in.nextLine(), t);
+    }
+
+    private Line makeLine(String input, Token t){
+        return Line.getSystemLine().createLine(input, t);
     }
 }

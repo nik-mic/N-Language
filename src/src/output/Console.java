@@ -1,8 +1,8 @@
 package output;
 
-import system.Certificate;
+import system.security.Certificate;
 import system.NMStack;
-import system.Token;
+import system.security.Token;
 
 public enum Console {
     ERROR,
@@ -11,6 +11,10 @@ public enum Console {
     OUTPUT;
 
     private final NMStack RUNNING_SYSTEM;
+
+    public int getLine(){
+        return RUNNING_SYSTEM.getSystemLine()-1;
+    }
 
     Console() {
         this.RUNNING_SYSTEM = new NMStack();

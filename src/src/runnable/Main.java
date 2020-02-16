@@ -1,7 +1,5 @@
 package runnable;
 
-
-import system.NMSystem;
 import system.Process;
 
 public class Main {
@@ -9,11 +7,11 @@ public class Main {
     private static final Process init = Process.getInnerProcess();
 
     public static void main(String[] args) {
-        Process running = init.createProcess();
+       /* Process running = init.createProcess();
         running.writeInfo();
-        while(NMSystem.isRunning()){
+        while (NMSystem.isRunning()) {
             running.run();
             running = running.createProcess();
-        }
+        } */
     }
 }

@@ -1,4 +1,4 @@
-package system;
+package system.security;
 
 public class Token {
     private final static Token innerToken = new Token();
@@ -7,11 +7,7 @@ public class Token {
         runningNumber = (int) System.currentTimeMillis();
     }
 
-   // public Token giveNewToken(){
-   //     return new Token();
-   // }
-
-    static Token getInnerToken(){
+    public static Token getInnerToken(){
         return innerToken;
     }
 
