@@ -1,9 +1,12 @@
 package memory.flash.ref;
 
+import common.Validation;
 import language.Callable;
 import memory.flash.ref.func.Function;
+import memory.flash.ref.var.Variable;
 import system.security.Certificate;
 import system.security.Token;
+import system.type.NMType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,27 +14,19 @@ import java.util.Map;
 public class ReferencesMemory {
 
     public ReferencesMemory() {
-        variables = new HashMap<>();
-        functions = new HashMap<>();
+        references = new HashMap<>();
     }
+    private final Map<String, Reference> references;
 
-
-    private final Map<String, Reference> variables;
-    private final Map<String, Callable> functions;
-
-    public void insert(Reference var, Token t) {
+    public void insert(Reference r, Token t){
         Certificate.certificate(t, toString());
-        variables.put(var.getIdentifier(), var);
-    }
-    public void insert(Function f, Token t){
-        Certificate.certificate(t, toString());
-        functions.put(f.getIdentifier(), f);
+        references.put(r.getIdentifier(), r);
     }
 
-    // TODO
-    public void reName(String oldName, String newName, Token t) {
-        if (t.isValid()) {
-            Reference tmp = variables.getOrDefault(oldName, null);
-        }
+
+    // TODO exception handlig
+    public NMType get(String name, Token t){
+        Reference var = references.getOrDefault(name, null);
+        return var.resolve(t);
     }
 }

@@ -28,11 +28,16 @@ public class Line implements Readable {
         }
     }
 
+    private String[] lineParts;
     private Mode lineMode = NMSystem.defaultMode;
     private String content;
     private String name;
     private final static Line systemLine = new Line("&Math count 10 :: numb10");
 
+
+    public final String getContent(){
+        return content;
+    }
     public static Line getSystemLine() {
         return systemLine;
     }
@@ -41,6 +46,7 @@ public class Line implements Readable {
         this.content = content;
         extractName();
         identify();
+        lineParts = this.content.split(" ");
     }
 
     private void extractName() {
@@ -77,6 +83,10 @@ public class Line implements Readable {
     }
     private void cutModeIdentifier() {
         content = content.substring(1);
+    }
+
+    public String[] getLineParts(){
+        return lineParts;
     }
 
     @Override

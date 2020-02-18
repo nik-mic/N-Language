@@ -12,6 +12,6 @@ public class Token {
     }
 
     public boolean isValid() {
-        return true;
+        return runningNumber < System.currentTimeMillis();
     }
 }

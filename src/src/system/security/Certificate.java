@@ -1,6 +1,7 @@
 package system.security;
 
 import input.val.CompilableLineCondition;
+import input.val.EmptyValidation;
 import input.val.FormatValidation;
 import memory.flash.ref.val.KeywordValidation;
 import memory.flash.ref.val.ReferenceCondition;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class Certificate {
 
-    private static List<CompilableLineCondition> lineConditions = Arrays.asList(new FormatValidation());
+    private static List<CompilableLineCondition> lineConditions = Arrays.asList(new EmptyValidation(), new FormatValidation());
     private static List<ReferenceCondition> refConditions = Arrays.asList(new SpaceValidation(), new SpecialCharacterValidation(), new KeywordValidation());
 
     public static boolean certificate(Token t, String context){
@@ -26,7 +27,7 @@ public class Certificate {
     public static boolean isValidName(String name){
         for(ReferenceCondition currentCondition : refConditions) {
             if (!currentCondition.check(name)) {
-                throw new ArithmeticException("Keine Gültiger Variablen Name");
+                throw new ArithmeticException("Keine Gültiger Variablen Name: " + currentCondition.toString());
             }
         }
         return true;
@@ -34,7 +35,7 @@ public class Certificate {
     public static boolean isValidLine(String input, Token t){
         for(CompilableLineCondition currentCondition : lineConditions) {
             if (!currentCondition.check(input)) {
-                Console.ERROR.writeConsoleLine("Keine gültige Eingabe", t);
+                Console.ERROR.writeConsoleLine("Keine gültige Eingabe: " + currentCondition.toString(), t);
                 return false;
             }
         }

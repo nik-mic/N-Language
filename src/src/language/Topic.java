@@ -1,5 +1,5 @@
 package language;
 
 public enum Topic {
-    MATH, TEXT, FILE;
+    MATH, TEXT, FILE, OWN;
 }

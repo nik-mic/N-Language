@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Data {
 
-    private final static Data preData = new Data();
+    public final static Data preData = new Data();
     private final List<NMType> dataStorage = new ArrayList<>();
     private Data(){
 
@@ -24,9 +24,9 @@ public class Data {
         return dataStorage.get(i);
     }
 
-    public void add(NMType data, Token t){
+    public int add(NMType data, Token t){
         Certificate.certificate(t, toString());
         dataStorage.add(data);
+        return dataStorage.size()-1;
     }
-
 }

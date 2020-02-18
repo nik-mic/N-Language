@@ -1,7 +1,15 @@
 package system.type;
 
-public abstract class NMType implements Comparable<NMType> {
+public class NMType <T extends String> implements Comparable<NMType<T>> {
+    private final T content;
+    public NMType(T content){
+        this.content = content;
+    }
 
+    @Override
+    public int compareTo(NMType nmType) {
+        return 0;
+    }
 }
 
 /*
