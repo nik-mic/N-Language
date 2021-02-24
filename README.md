@@ -1,4 +1,4 @@
-# NiMic
+# N - language
 im on my way creating my own little skript language
 
 # F E A T U R E S
