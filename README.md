@@ -34,7 +34,7 @@ im on my way creating my own little skript language
 
 ## 6. System
 	Mit dem Topic "System" kann auf triviale Verzweigungsoperationen zugegriffen werden um 2 bsp zu nennen: 
-		### 6.1: decide 
+		## 6.1: decide 
 			Decide erhällt 2 Optionen und eine Bedingung und entscheidet anhand der Bedienung welche zurückgegeben/ausgeführt/gespeichert etc wird.
 				bsp: 0: System decide Hello, Bye, 4 > 5 => Bye
 				bsp: 1: System decide 0, 1, Math count 10 > Math sum 12, 2 => 0
@@ -43,7 +43,7 @@ im on my way creating my own little skript language
 			mit dem SAVE Operator kann die Auswahl unter einem beliebigen Namen gespeichert werden
 				bsp: 2: &System decide Math count 10, Math count 20, 10 >= 20 :: X
 				     3: Text say X => 0, 1, 2, ... 19
-		### 6.2: loop
+		## 6.2: loop
 			loop wiederholt eine beliebig anzahl an Operationen solange eine Bedienung stimmt. 
 			Die Überprüfung findet genau da statt wo die Bedienung der Methode gegeben wurde. 
 				bsp: 0: System loop Text say hallo, Text say bye, 1 < 2 => hallo bye hallo bye .. unendlich loop
@@ -53,7 +53,7 @@ im on my way creating my own little skript language
 
 			benutze !loop in einem loop um die akteulle Anzahl der Durchläufe zu erhalten. 
 
-		### 6.3 Weiter Folgen
+		## 6.3 Weiter Folgen
 
 ## 7. Funktionen 
 	Wie in Punkt 2 erläutert sind wir in der Lage mit dem SAVE Operator Variablen zu speichern (und sie zu benennen) 
@@ -79,7 +79,7 @@ im on my way creating my own little skript language
 	Allerdings ist zu beachten, dass dies mit viel Vorsicht zu Benutzen ist. Definiert man zb Die Rule namens "a" statt wie geplant " a ", 
 	wird nun in der Zeile jeder Buchstabe a mit dem vorgesehenen Code ersetzt. Dies kann schnell zu Fehlern führen. 
 
-	8.1 (operator) Rules => Language Renaming 
+	## 8.1 (operator) Rules => Language Renaming 
 	Durch Rules ist es einfach möglich feste Syntaxtische Begriffe für sein eigenes Projekt umzubennen. 
 	Die Sprache selber Benutzt diese Art der Umbennung an manchen Stellen für Benutzer Einstellungen. 
 		bsp: 0: &Text say = :: [::]
