@@ -2,14 +2,13 @@ package memory.flash.ref.func;
 
 import language.Callable;
 import memory.flash.ref.Reference;
+import runnable.Main;
 import system.security.Token;
 import system.type.NMType;
 
 public class Function extends Reference implements Callable {
-    private final NMType<String> methodCode;
-    protected Function(String refIdentifier, String methodCode) {
-        super(refIdentifier);
-        this.methodCode = new NMType<String>(methodCode);
+    protected Function(String refIdentifier, int link) {
+        super(refIdentifier, link);
     }
 
     @Override
@@ -19,6 +18,6 @@ public class Function extends Reference implements Callable {
 
     @Override
     public NMType resolve(Token t) {
-        return methodCode;
+        return Main.getActiveProcess(t).getDataFrom(link);
     }
 }

@@ -9,7 +9,7 @@ public class Variable extends Reference {
 
     private int link;
     public Variable(String refIdentifier, int link) {
-        super(refIdentifier);
+        super(refIdentifier, link);
         this.link=link;
     }
 

@@ -1,8 +1,11 @@
 package input;
 
+import memory.flash.ref.rule.Rule;
 import output.Console;
 import system.security.Certificate;
 import system.security.Token;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class NMListener {
@@ -18,9 +21,17 @@ public class NMListener {
     }
 
     private Line makeLine(String input, Token t){
+     // List<Rule> rules = getRules();
+     /*   for(Rule r : rules){
+            if(input.contains(r.getIdentifier())){
+
+            }
+        } */
         return Line.getSystemLine().createLine(input, t);
     }
     private String tryToMakeLine(String input, Token t){
         return (Certificate.isValidLine(input, t)) ? input : "&Math count 10 :: lol";
     }
+
+
 }

@@ -15,8 +15,11 @@ public class ReferencesMemory {
 
     public ReferencesMemory() {
         references = new HashMap<>();
+        rules = new HashMap<>();
+
     }
     private final Map<String, Reference> references;
+    private final Map<String, Reference> rules;
 
     public void insert(Reference r, Token t){
         Certificate.certificate(t, toString());

@@ -5,4 +5,5 @@ public class CommandNameWrapper {
     public final char PRINT = '$';
     public final char GIVE = '<';
     public final String PUSHER = " :: ";
+    public final String REREF = "!";
 }

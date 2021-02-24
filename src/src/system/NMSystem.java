@@ -10,6 +10,7 @@ public class NMSystem {
     public static char GIVE = '<';
     public static char PRINT = '$';
     public static String PUSH = " :: ";
+    public static String REREF = "!";
     public static Line.Mode defaultMode = Line.Mode.PRINT;
 
     private NMSystem(CommandNameWrapper cmw){
@@ -31,4 +32,7 @@ public class NMSystem {
         return "current systemstatus: " + systemStatus;
     }
 
+    /*
+        user -> input -> line -> compiler "Content:Name" -> CoCompiler -> Factory -> Main -> Thread -> Data -> RefMemory
+     */
 }
